@@ -21,7 +21,7 @@ export default function Rsvp() {
       if (res.status === 200) {
         setSubmitted(true)
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error('Err', err)
     }
   }

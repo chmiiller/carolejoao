@@ -12,10 +12,13 @@ export default async function handler(
 ) {
   const mgKey = process.env.MG_API_KEY || '';
   const mgDomain = process.env.MG_DOMAIN || '';
+  const emailJoao = process.env.EMAIL_JOAO || '';
+  const emailCarol = process.env.EMAIL_CAROL || '';
+  const emailControle = process.env.EMAIL_CONTROLE || '';
   const {name, people} = req.body;
   const messageData = {
     from: "Lista RSVP <jlzinato@gmail.com>",
-    to: ["cmzinato@gmail.com", "jlzinato@gmail.com", "cavendeiro@gmail.com"],
+    to: [emailJoao, emailCarol, emailControle],
     subject: `Presença confirmada! ${name}`,
     text: `A ${name} confirmou a presença dela + ${people} pessoas`,
   };
