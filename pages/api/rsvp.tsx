@@ -15,6 +15,7 @@ export default async function handler(
   const emailJoao = process.env.EMAIL_JOAO || '';
   const emailCarol = process.env.EMAIL_CAROL || '';
   const emailControle = process.env.EMAIL_CONTROLE || '';
+  console.log(`---------------------> emailControle: ${JSON.stringify(emailControle, null, '    ')}`);
   const {name, people} = req.body;
   const messageData = {
     from: "Lista RSVP <jlzinato@gmail.com>",
