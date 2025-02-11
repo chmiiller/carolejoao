@@ -30,7 +30,7 @@ export default async function handler(
     key: mgKey
   });
   try {
-    const response = await mg.messages.create(mgDomain+'asd', messageData);
+    const response = await mg.messages.create(mgDomain, messageData);
     console.log(`---------------------> RSVP response: ${JSON.stringify(response, null, '    ')}`);
     res.status(200).json({ error: false, message: 'Success' });
   } catch(e: unknown) {
