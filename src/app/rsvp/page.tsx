@@ -31,7 +31,7 @@ export default function Rsvp() {
       <h1 className="text-center font-semibold text-3xl mt-4">
         {`Obrigado ${name}! Sua presença foi confirmada!`}
       </h1>
-      <Confetti />
+      <Confetti recycle={false} numberOfPieces={1000}/>
     </div>
   ) : 
     <form
