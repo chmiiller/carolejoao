@@ -3,7 +3,8 @@ import Mailgun from 'mailgun.js';
 import FormData from 'form-data';
 
 type ResponseData = {
-  message: string
+  message: string,
+  error: boolean
 }
  
 export default async function handler(
@@ -17,17 +18,23 @@ export default async function handler(
   const emailControle = process.env.EMAIL_CONTROLE || '';
   const {name, people} = req.body;
   const messageData = {
-    from: "Lista RSVP <jlzinato@gmail.com>",
+    from: `Lista RSVP <${emailJoao}>`,
     to: [emailJoao, emailCarol, emailControle],
+    // to: [emailControle],
     subject: `Presença confirmada! ${name}`,
-    text: `A ${name} confirmou a presença dela + ${people} pessoas`,
+    text: `${name} confirmou a presença dela + ${people} pessoa(s)`,
   };
   const mailgun = new Mailgun(FormData);
   const mg = mailgun.client({
     username: 'api',
     key: mgKey
   });
-  const response = mg.messages.create(mgDomain, messageData);
-  console.log(response);
-  res.status(200).json({ message: 'Success' })
+  try {
+    const response = await mg.messages.create(mgDomain+'asd', messageData);
+    console.log(`---------------------> RSVP response: ${JSON.stringify(response, null, '    ')}`);
+    res.status(200).json({ error: false, message: 'Success' });
+  } catch(e: unknown) {
+    console.log(`---------------------> RSVP error from name: ${name}: ${JSON.stringify(e, null, '    ')}`);
+    res.status(401).json({ error: true, message: 'Something went wrong'});
+  }
 }

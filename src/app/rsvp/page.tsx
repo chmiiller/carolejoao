@@ -3,9 +3,10 @@ import { useState } from 'react';
 import Confetti from 'react-confetti'
 
 export default function Rsvp() {
-  const [isSubmitted, setSubmitted] = useState(false)
-  const [name, setName] = useState('')
-  const [people, setPeople] = useState('')
+  const [isSubmitted, setSubmitted] = useState(false);
+  const [name, setName] = useState('');
+  const [people, setPeople] = useState('');
+  const [apiError, setApiError] = useState('');
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,6 +21,8 @@ export default function Rsvp() {
       })
       if (res.status === 200) {
         setSubmitted(true)
+      } else {
+        setApiError("Ops, algo deu errado. Por favor, tente novamente mais tarde.");
       }
     } catch (err) {
       console.error('Err', err)
@@ -68,9 +71,13 @@ export default function Rsvp() {
         value={people}
         onChange={(e) => setPeople(e.target.value)}
       />
+      {apiError && (
+        <p>{apiError}</p>
+      )}
       {/* Button */}
       <button
         className="text-white bg-gradient-to-br mt-4 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        disabled={apiError !== ''}
         type="submit">
           Confirmar presença
       </button>
