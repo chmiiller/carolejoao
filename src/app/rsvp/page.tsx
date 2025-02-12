@@ -1,7 +1,9 @@
 'use client'
+import Header from '@/components/Header';
 import { useState } from 'react';
 import Confetti from 'react-confetti'
 
+const errorMessage = `Não foi possível confirmar sua presença. Tente mais tarde ou entre em contato com os noivos.`;
 export default function Rsvp() {
   const [isSubmitted, setSubmitted] = useState(false);
   const [name, setName] = useState('');
@@ -22,7 +24,7 @@ export default function Rsvp() {
       if (res.status === 200) {
         setSubmitted(true)
       } else {
-        setApiError("Ops, algo deu errado. Por favor, tente novamente mais tarde.");
+        setApiError(errorMessage);
       }
     } catch (err) {
       console.error('Err', err)
@@ -30,57 +32,60 @@ export default function Rsvp() {
   }
 
   return isSubmitted ? (
-    <div>
-      <h1 className="text-center font-semibold text-3xl mt-4">
-        {`Obrigado ${name}! Sua presença foi confirmada!`}
-      </h1>
+    <div className='p-4 flex flex-col items-center'>
+      <Header />
+      <p className="p-1 text-center font-semibold text-2xl mt-10 font-[family-name:var(--font-geist-sans)] font-extralight">
+        {`Obrigado ${name}.`}
+        <br />
+        {`Sua presença + ${people} foi confirmada!`}
+      </p>
       <Confetti recycle={false} numberOfPieces={1000}/>
     </div>
   ) : 
-    <form
-      className="flex flex-col p-4"
+    <div className='p-4 flex flex-col items-center'>
+      <Header />
+      <form
+      className="flex flex-col p-4 mt-8"
       onSubmit={onSubmit}
     >
       {/* Name */}
-      <label className="label font-semibold mt-2" htmlFor='nomeCompleto'>
-        <span className="label-text">Nome completo</span>
+      <label className="label font-[family-name:var(--font-geist-sans)] font-extralight" htmlFor='nomeCompleto'>
+        <span className="label-text">Seu nome</span>
       </label>
       <input
         id='nomeCompleto'
         name='nomeCompleto'
-        className="input w-full input-bordered input-primary mt-2 mb-2 border border-zinc-800 p-1 text-lg"
+        className="w-full mt-2 mb-6 border-slate-900 border-solid border rounded-xl p-2 text-lg font-[family-name:var(--font-geist-sans)] font-thin"
         value={name}
         onChange={(e) => setName(e.target.value)}
         type="text"
         placeholder="Digite seu nome"
+        required
       />
       {/* People */}
-      <label className="label font-semibold" htmlFor='pessoas'>
-        <span className="label-text">Número de acompanhantes</span>
+      <label className="label font-[family-name:var(--font-geist-sans)] font-extralight" htmlFor='pessoas'>
+        <span className="label-text">Nome do(s) acompanhante(s)</span>
       </label>
       <input
         id='pessoas'
         name='pessoas'
-        className="w-full mt-2 mb-2 border border-zinc-800 p-1 text-lg"
-        type='number'
-        inputMode={'numeric'}
-        min={1}
-        max={20}
-        step={1}
-        placeholder="2"
+        className="w-full mt-2 mb-2 border-slate-900 border-solid border rounded-xl p-2 text-lg font-[family-name:var(--font-geist-sans)] font-thin"
+        placeholder="Quem vai com você?"
         value={people}
         onChange={(e) => setPeople(e.target.value)}
+        required
       />
-      {apiError && (
-        <p>{apiError}</p>
-      )}
       {/* Button */}
       <button
-        className="text-white bg-gradient-to-br mt-4 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        className='font-tan text-3xl border-slate-900 border-solid border-2 rounded-xl p-2 mt-10 text-slate-700 min-w-60 text-center'
         disabled={apiError !== ''}
         type="submit">
           Confirmar presença
       </button>
+      {apiError && (
+        <p className='p-4 font-[family-name:var(--font-geist-sans)] text-center'>{apiError}</p>
+      )}
     </form>
+    </div>
   
 };

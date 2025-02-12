@@ -1,18 +1,24 @@
-import Image from 'next/image';
+import Header from '@/components/Header';
+import OutlineLink from '@/components/OutlineLink';
+import { MapPin } from 'lucide-react';
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          src={'/logo.png'}
-          width={300}
-          height={300}
-          alt='Carol & Joao'
-        />
-        <a href="/rsvp">RSVP</a>
-        <a href="/gifts">Lista de presentes</a>
-        <a href="/menu">Menu</a>
+    <div className={`items-center min-h-screen p-4 pb-20`}>
+      <main className="flex flex-col items-center">
+        <Header hideBack/>
+        <div className='mt-24 mb-24'>
+          <OutlineLink url='/rsvp' title='RSVP'/>
+          <OutlineLink url='/gifts' title='Lista de presentes'/>
+          <OutlineLink url='/menu' title='Menu'/>
+        </div>
+        <p className='text-center font-[family-name:var(--font-geist-sans)] text-lg font-extralight'>Te esperamos para celebrar conosco<br />no dia 4 de Maio de 2025</p>
+        <br />
+        <a href='https://maps.app.goo.gl/UGuc4Rj1HDU2tqaj6' className='flex flex-row items-center'>
+          <MapPin size={20} strokeWidth={1} />
+          <p className='text-center font-[family-name:var(--font-geist-sans)] font-thin ml-1'>Rua 2 de Julho 607 - Buffet Mediterrâneo</p>
+        </a>
       </main>
     </div>
   );
