@@ -19,8 +19,8 @@ export default async function handler(
   const {name, people} = req.body;
   const messageData = {
     from: `Lista RSVP <${emailJoao}>`,
-    // to: [emailJoao, emailCarol, emailControle],
-    to: [emailControle],
+    to: [emailJoao, emailCarol, emailControle],
+    // to: [emailControle],
     subject: `Presença confirmada! ${name}`,
     text: `${name} confirmou sua presença.
 Acompanhantes: ${people}`,
