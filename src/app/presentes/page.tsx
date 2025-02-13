@@ -4,7 +4,7 @@ import Image from 'next/image';
 const texto = `Sua presença é nosso maior presente, mas se você quiser contribuir para o começo da nossa história, pode usar o QR Code ou Chave Pix abaixo`;
 const sugestao = `(Valor sugerido R$200)`;
 const pix = `Chave Pix: (11) 99452-4358`;
-export default function Gifts() {
+export default function Presentes() {
   return ( 
     <div className='p-4 flex flex-col items-center'>
       <Header />
