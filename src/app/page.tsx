@@ -9,7 +9,7 @@ export default function Home() {
       <main className="flex flex-col items-center">
         <Header hideBack/>
         <div className='mt-24 mb-24'>
-          <OutlineLink url='/rsvp' title='RSVP'/>
+          <OutlineLink url='/rsvp' title='Confirmar presença'/>
           <OutlineLink url='/presentes' title='Lista de presentes'/>
           <OutlineLink url='/menu' title='Menu'/>
         </div>
