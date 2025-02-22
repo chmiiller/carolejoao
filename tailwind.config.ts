@@ -14,6 +14,13 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontSize: {
+        '2xs': '0.7rem',
+        '3xs': '0.65rem',
+        '4xs': '0.6rem',
+        '5xs': '0.55rem',
+        '6xs': '0.50rem'
+      },
       fontFamily: {
         tan: ['var(--font-tan)', ...fontFamily.sans],
       }
