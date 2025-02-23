@@ -2,11 +2,11 @@ import Header from "@/components/Header";
 import OutlineLink from "@/components/OutlineLink";
 import { MapPin } from "lucide-react";
 
-//bg-[url('/noivos.jpg')] bg-no-repeat
+const noivosImage = "/noivos2.jpg";
 export default function Home() {
   return (
     <div className={`items-center min-h-screen pb-20`}>
-      <img className={`absolute w-full opacity-50`} src="/noivos.jpg" />
+      <img className={`absolute w-full opacity-50`} src={noivosImage} />
       <main className="flex flex-col items-center relative">
         <Header hideBack />
         <div className="flex flex-col mt-10 mb-24 items-center">
