@@ -10,9 +10,8 @@ export default function Home() {
       <main className="flex flex-col items-center relative">
         <Header hideBack />
         <div className="flex flex-col mt-10 mb-24 items-center">
-          <OutlineLink url="/rsvp" title="Confirmar presença" />
-          <OutlineLink url="/cerimonia" title="Cerimônia" />
-          <OutlineLink url="/recepcao" title="Recepção" />
+          <OutlineLink url="/rsvp" title="Confirme presença" />
+          <OutlineLink url="/cerimonia" title="Cerimônia e Recepção" />
           <OutlineLink url="/presentes" title="Pix presente" />
           <OutlineLink url="/roteiro" title="Roteiro do dia" />
           <div className="bg-white mt-14">
