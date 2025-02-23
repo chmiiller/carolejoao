@@ -1,6 +1,7 @@
 "use client";
 import Header from "@/components/Header";
 import Image from "next/image";
+import { Copy } from "lucide-react";
 
 const texto = `Sua presença é nosso maior presente, mas se você quiser contribuir para o começo da nossa história, pode usar o QR Code ou Chave Pix abaixo`;
 
@@ -25,21 +26,17 @@ export default function Presentes() {
           </p>
           <Image src="/QRJoao.jpg" width={250} height={250} alt="Pix QR Code" />
           <p
-            className="text-center mt-6 mb-8 font-[family-name:var(--font-geist-sans)] font-thin"
+            className="text-center mt-6 mb-8 font-[family-name:var(--font-geist-sans)] font-thin flex flex-row items-center cursor-pointer"
             onClick={() => {
               navigator.clipboard.writeText(`${pixValueJoao}`);
             }}
           >
+            <Copy className="cursor-pointer mr-1" size={16} />
             {pixJoao}
           </p>
         </div>
         <div>
-          <p
-            className="text-center mb-2 font-[family-name:var(--font-geist-sans)] font-normal text-lg"
-            onClick={() => {
-              navigator.clipboard.writeText(`${pixValueCarol}`);
-            }}
-          >
+          <p className="text-center mb-2 font-[family-name:var(--font-geist-sans)] font-normal text-lg">
             {tituloCarol}
           </p>
           <Image
@@ -48,7 +45,13 @@ export default function Presentes() {
             height={250}
             alt="Pix QR Code"
           />
-          <p className="text-center mt-6 mb-8 font-[family-name:var(--font-geist-sans)] font-thin">
+          <p
+            className="text-center mt-6 mb-8 font-[family-name:var(--font-geist-sans)] font-thin flex flex-row items-center cursor-pointer"
+            onClick={() => {
+              navigator.clipboard.writeText(`${pixValueCarol}`);
+            }}
+          >
+            <Copy className="cursor-pointer mr-1" size={16} />
             {pixCarol}
           </p>
         </div>
