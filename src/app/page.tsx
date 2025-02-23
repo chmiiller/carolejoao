@@ -10,7 +10,7 @@ export default function Home() {
       <main className="flex flex-col items-center relative">
         <Header hideBack />
         <div className="flex flex-col mt-10 mb-24 items-center">
-          <OutlineLink url="/rsvp" title="Confirme presença" />
+          <OutlineLink url="/rsvp" title="Confirmar presença" />
           <OutlineLink url="/cerimonia" title="Cerimônia e Recepção" />
           <OutlineLink url="/presentes" title="Pix presente" />
           <OutlineLink url="/roteiro" title="Roteiro do dia" />
@@ -18,7 +18,7 @@ export default function Home() {
             <p className="text-center font-[family-name:var(--font-geist-sans)] text-lg font-extralight">
               Te esperamos para celebrar conosco
               <br />
-              no dia 4 de Maio de 2025
+              no dia quatro de maio de 2025
             </p>
             <br />
             <a
@@ -26,10 +26,17 @@ export default function Home() {
               target="_blank"
               className="flex flex-row items-center"
             >
-              <MapPin size={20} strokeWidth={1} />
-              <p className="text-center font-[family-name:var(--font-geist-sans)] font-thin ml-1">
-                Rua 2 de Julho 607 - Buffet Mediterrâneo
-              </p>
+              <div className="flex flex-col p-2">
+                <p className="text-center text-sm font-[family-name:var(--font-geist-sans)] font-thin ml-1">
+                  Clique no ícone para abrir o mapa
+                </p>
+                <div className="flex">
+                  <MapPin size={20} strokeWidth={1} />
+                  <p className="text-center font-[family-name:var(--font-geist-sans)] font-thin ml-1">
+                    Rua Dois de Julho, 607 - Buffet Mediterrâneo
+                  </p>
+                </div>
+              </div>
             </a>
           </div>
         </div>
