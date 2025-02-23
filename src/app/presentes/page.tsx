@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/Header";
 import Image from "next/image";
 
@@ -5,6 +6,8 @@ const texto = `Sua presença é nosso maior presente, mas se você quiser contri
 
 const tituloJoao = `Presenteie o João`;
 const tituloCarol = `Presenteie a Carol`;
+const pixValueJoao = `+5511994524358`;
+const pixValueCarol = `+5511992294062`;
 const pixJoao = `Chave Pix: +5511994524358`;
 const pixCarol = `Chave Pix: +5511992294062`;
 export default function Presentes() {
@@ -21,12 +24,22 @@ export default function Presentes() {
             {tituloJoao}
           </p>
           <Image src="/QRJoao.jpg" width={250} height={250} alt="Pix QR Code" />
-          <p className="text-center mt-6 mb-8 font-[family-name:var(--font-geist-sans)] font-thin">
+          <p
+            className="text-center mt-6 mb-8 font-[family-name:var(--font-geist-sans)] font-thin"
+            onClick={() => {
+              navigator.clipboard.writeText(`${pixValueJoao}`);
+            }}
+          >
             {pixJoao}
           </p>
         </div>
         <div>
-          <p className="text-center mb-2 font-[family-name:var(--font-geist-sans)] font-normal text-lg">
+          <p
+            className="text-center mb-2 font-[family-name:var(--font-geist-sans)] font-normal text-lg"
+            onClick={() => {
+              navigator.clipboard.writeText(`${pixValueCarol}`);
+            }}
+          >
             {tituloCarol}
           </p>
           <Image
