@@ -17,8 +17,8 @@ const bancoLabel = `Banco:`;
 const bancoDescription = `077 - Inter`;
 const contaLabel = `Número da conta:`;
 const contaDescription = `3362216-7`;
-const agenciaDescription = `0001`;
 const agenciaLabel = `Agência:`;
+const agenciaDescription = `0001`;
 const cpfLabel = `CPF:`;
 const cpfDescription = `294.667.828-86`;
 
@@ -128,7 +128,7 @@ export default function Presentes() {
             }}
           >
             <Copy className="cursor-pointer mr-1" size={16} />
-            <b>{contaLabel}</b> {contaDescription}
+            <b className="mr-1">{contaLabel}</b> {contaDescription}
           </span>
           <span
             className="text-left flex-auto mb-1 flex flex-row items-center"
@@ -137,7 +137,7 @@ export default function Presentes() {
             }}
           >
             <Copy className="cursor-pointer mr-1" size={16} />
-            <b>{agenciaLabel}</b> {agenciaDescription}
+            <b className="mr-1">{agenciaLabel}</b> {agenciaDescription}
           </span>
           <span
             className="text-left flex-auto mb-1 flex flex-row items-center"
@@ -146,7 +146,7 @@ export default function Presentes() {
             }}
           >
             <Copy className="cursor-pointer mr-1" size={16} />
-            <b>{bancoLabel}</b> {bancoDescription}
+            <b className="mr-1">{bancoLabel}</b> {bancoDescription}
           </span>
           <span
             className="text-left flex-auto mb-1 flex flex-row items-center"
@@ -155,7 +155,7 @@ export default function Presentes() {
             }}
           >
             <Copy className="cursor-pointer mr-1" size={16} />
-            <b>{cpfLabel}</b> {cpfDescription}
+            <b className="mr-1">{cpfLabel}</b> {cpfDescription}
           </span>
         </div>
         {showAlert3 && (
